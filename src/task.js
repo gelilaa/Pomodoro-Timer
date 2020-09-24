@@ -37,12 +37,19 @@ export class todolist {
         textInputEl.addEventListener('keyup', this.handleTextChange.bind(this));
         container.appendChild(textInputEl);
 
-        
+        const pomodoro1 = document.getElementById('pom-number').value;
+        this.pomodoro = pomodoro1;
+        const span1 = document.createElement('span');
+        span1.innerHTML = '0/' + this.pomodoro +"&nbsp;&nbsp;";
+        span1.className = 'span';
+        container.appendChild(span1);
+       
 
         const span = document.createElement('span');
         span.innerHTML = '<i class="fas fa-ellipsis-v"></i>';
         span.className = 'span';
         container.appendChild(span);
+        container.insertBefore(span, span1);
         
 
         div.appendChild(container);
@@ -56,6 +63,7 @@ export class todolist {
         text2.innerHTML = '<div>working on</div>' + '        ' + this.state.text;
 
     }
+   
 };
 
 
@@ -68,8 +76,9 @@ const createtodolistHandler = (event) => {
     debugger;
     const saveTask = event.target
     const task = saveTask.offsetParent.children[0].children[1].value;
+    const estPomodoro = document.getElementById('pom-number').value
 
-    if (task === '') {
+    if (task === '' ||estPomodoro === '0' ) {
         document.getElementById('add').disabled = true;
         document.getElementById('add').disabled = false;
         return;
