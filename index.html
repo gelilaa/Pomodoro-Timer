@@ -2,28 +2,94 @@
 <html lang='en'>
 
 <head>
-  <meta charset='utf8'>
-  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/1f1918c2d9.js" crossorigin="anonymous"></script>
 
+  <title>Pomodoro-Timer</title>
   <link href="./public/style.css" rel="stylesheet" />
 
 </head>
 
 <body>
 
-  <main id='user-interface'>
-    <input id='list-name-input' />
-    <div id='lists'></div>
-  </main>
+  <div class="card text-white  mb-8" style="max-width: 30rem;">
+    <div class="card-header text-center">
+      <button type="button" class="btn" id='pomodoro'>Pomodoro</button>
+      <button type="button" class="btn" id="short">Short Break</button>
+      <button type="button" class="btn" id="long">Long Break</button>
+    </div>
+    <div class="card-body">
 
+      <p class="card-text text-center">
+        <span id="minutes">25</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+        <button type="button" class="btn start" id="short">Start</button>
+    </div>
+    </p>
+  </div>
+<br>
+
+<br><br><br>
+<div id="working-on">Time to work!</div>
+<br>
+<div id="root"></div>
+<div class="warpper">
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body body">
+          <div class="input-group input-group sm-3">
+            <div class="input-group-prepend">
+            </div>
+            <input id="first" type="text" class="form-control" aria-label="Large"
+              aria-describedby="inputGroup-sizing-sm" placeholder="what are you working on?" required>
+          </div>
+          &nbsp;
+          Est.Pomodoros
+          <div class="input-group input-group-sm mb-1 col-sm-2">
+            <div class="input-group-prepend">
+            </div>
+            <input type="number" id="pom-number" class="form-control sm" min="0" aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm" value="0"">     
+                    </div>
+                    <div class=" col-1">
+          </div>
+          <div class="jumbo">
+            <button class="btn" id="cancel" style="color: grey;">cancel</button>
+            <button class="btn" id="add" style="background-color: rgb(131, 127, 127); ">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class='colaps col-lg-8'>
+    <a class="btn col-lg-8 btn-light " data-toggle="collapse" href="#multiCollapseExample1" role="button"
+      aria-expanded="false" aria-controls="multiCollapseExample1">Add Task</a>
+
+  </p>
+
+</div>
 
   <!-- load the frontend testing & reviewing dependencies -->
   <script src='./lib/review-buttons.js' type='module'></script>
   <script src='./lib/gremlins.js'></script>
 
   <!-- load your app -->
+    <script type='module' src='./src/task.js'></script>
+
   <script type='module' src='./src/init.js'></script>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </html>
