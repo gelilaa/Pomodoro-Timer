@@ -1,15 +1,17 @@
 body{
-    margin: auto;
-     background: rgb(240, 91, 86);
-
+    margin: 0;
+    background: rgb(240, 91, 86);
+    overflow:scroll;
 }
+
 .card{
-    margin-left: 23rem;
+   margin-left: 23rem;
    background-color: rgba(255, 255, 255, 0.1);
    height: 430px;
-    top: 5rem;
-    bottom: 5rem;
+   top: 5rem;
+   bottom: 5rem;
 }
+
 .btn{
     margin: auto;
     float:center;
@@ -18,9 +20,11 @@ body{
     color:white
     
 }
+
 .btn:hover{
     color:rgb(199, 49, 43) ;
 }
+
 .btn:active{
     color: white;
    background: none rgba(0, 0, 0, 0.15);
@@ -48,4 +52,73 @@ body{
     width: 200px;
     background-color: white;
     transition: color 0.5s ease-in-out 0s;
+}
+
+.body{    
+    height: 200px;
+    width: 40%;
+    background-color: white;
+    z-index: 1;
+}
+
+.colaps{
+    position: relative;
+    display: block;
+    top: 3rem;
+    left:21rem; 
+}
+
+#working-on{
+    position: relative;
+    left:35rem;
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+    overflow-wrap: break-word;
+}
+
+.jumbo{
+  height: 70px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 16px;
+  padding-right: 10px;
+  text-align: right;
+  background-color: rgb(239, 239, 239);    
+}
+
+#add #cancel {
+    float:right;
+    color: gray;
+}
+
+ .input1{
+     float: left;
+     border: none;
+     background: transparent;
+     color: gray;
+     font-size: large;
+ }
+
+ .checkbox{
+     float: left;
+     margin-top: 8px;
+ }
+
+ #root{
+     position: relative;
+    left:20rem;
+    font-size: 18px;
+    font-weight: 100;
+    color: white;
+    overflow-wrap: break-word;
+ }
+
+ .bn{
+   background-color: white;  
+ }
+
+.span{
+    float: right;
+    color: black;
 }
