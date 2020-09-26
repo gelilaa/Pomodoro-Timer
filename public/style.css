@@ -1,0 +1,51 @@
+body{
+    margin: auto;
+     background: rgb(240, 91, 86);
+
+}
+.card{
+    margin-left: 23rem;
+   background-color: rgba(255, 255, 255, 0.1);
+   height: 430px;
+    top: 5rem;
+    bottom: 5rem;
+}
+.btn{
+    margin: auto;
+    float:center;
+    align-self: center;
+    background: none;
+    color:white
+    
+}
+.btn:hover{
+    color:rgb(199, 49, 43) ;
+}
+.btn:active{
+    color: white;
+   background: none rgba(0, 0, 0, 0.15);
+   border-color:none;
+}
+
+.card-text{
+    margin-left: 10px;
+  font-size: 120px;
+    font-weight: bold;
+    
+}
+.start{
+    cursor: pointer;
+    border: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    font-family: ArialRounded;
+    font-size: 22px;
+    height: 55px;
+    color: rgb(240, 91, 86);
+    font-weight: bold;
+    width: 200px;
+    background-color: white;
+    transition: color 0.5s ease-in-out 0s;
+}
