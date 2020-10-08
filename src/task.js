@@ -20,9 +20,6 @@ export class todolist {
         this.state.text = newName;
         event.defaultValue = newName;
     };
-    handleDelete () {
-        console.log('perdeu playboy');
-    }
     render() {
 
         const div = document.createElement('div');
