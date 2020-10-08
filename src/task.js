@@ -1,5 +1,3 @@
-
-
 export class todolist {
     state = {
         text: undefined,
@@ -15,7 +13,18 @@ export class todolist {
     handleTextChange(event) {
         this.state.text = event.target.value;
     };
+
+    handleTextEdit(event) {
+        debugger
+        const newName = prompt('Edit Task Name')
+        this.state.text = newName;
+        event.defaultValue = newName;
+    };
+    handleDelete () {
+        console.log('perdeu playboy');
+    }
     render() {
+
         const div = document.createElement('div');
         const container = document.createElement('button');
         container.addEventListener('click', this.workingOn.bind(this));
@@ -32,7 +41,7 @@ export class todolist {
 
         const textInputEl = document.createElement('input');
         textInputEl.type = 'button';
-        textInputEl.className = 'input1'
+        textInputEl.className = 'input1';
         textInputEl.value = this.state.text;
         textInputEl.addEventListener('keyup', this.handleTextChange.bind(this));
         container.appendChild(textInputEl);
@@ -44,12 +53,19 @@ export class todolist {
         span1.className = 'span';
         container.appendChild(span1);
        
-
-        const span = document.createElement('span');
-        span.innerHTML = '<i class="fas fa-ellipsis-v"></i>';
-        span.className = 'span';
-        container.appendChild(span);
-        container.insertBefore(span, span1);
+        const spanEdit = document.createElement('span');
+        spanEdit.innerHTML = '<i class="fas fa-pen"></i>';
+        spanEdit.className = 'span';
+        spanEdit.addEventListener('click', this.handleTextEdit.bind(this, textInputEl))
+        container.appendChild(spanEdit);
+        container.insertBefore(spanEdit, span1);
+        
+        const spanDelete = document.createElement('span');
+        spanDelete.innerHTML = '<i class="fas fa-trash"></i>';
+        spanDelete.className = 'span';
+        spanDelete.addEventListener('click', this.handleDelete.bind(this.container))
+        container.appendChild(spanDelete);
+        container.insertBefore(spanDelete, spanEdit);
         
 
         div.appendChild(container);

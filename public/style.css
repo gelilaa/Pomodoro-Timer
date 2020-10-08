@@ -119,6 +119,7 @@ body {
 .span {
   float: right;
   color: black;
+  margin: 0 5px;
 }
 
 .fixed-bar {
