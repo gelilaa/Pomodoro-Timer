@@ -20,6 +20,11 @@ export class todolist {
         this.state.text = newName;
         event.defaultValue = newName;
     };
+    handleDelete(event) {
+        //debugger
+        this.state.text = '';
+        event.remove();
+    }
     render() {
 
         const div = document.createElement('div');
@@ -34,7 +39,6 @@ export class todolist {
         checkBoxEl.checked = this.state.complete;
         checkBoxEl.addEventListener('click', this.handleToggle.bind(this, checkBoxEl));
         container.appendChild(checkBoxEl);
-
 
         const textInputEl = document.createElement('input');
         textInputEl.type = 'button';
@@ -60,10 +64,9 @@ export class todolist {
         const spanDelete = document.createElement('span');
         spanDelete.innerHTML = '<i class="fas fa-trash"></i>';
         spanDelete.className = 'span';
-        spanDelete.addEventListener('click', this.handleDelete.bind(this.container))
+        spanDelete.addEventListener('click', this.handleDelete.bind(this, div))
         container.appendChild(spanDelete);
         container.insertBefore(spanDelete, spanEdit);
-        
 
         div.appendChild(container);
         document.getElementById('first').value = '';
