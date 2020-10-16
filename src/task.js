@@ -1,8 +1,15 @@
+
+
 export class todolist {
+
     state = {
         text: undefined,
         complete: false,
-        pomodoro: 0,
+        pomodoro: 1,
+       pom:0,
+       id: 0
+      
+       
     };
     constructor(text) {
         this.state.text = text;
@@ -31,6 +38,7 @@ export class todolist {
         const container = document.createElement('button');
         container.addEventListener('click', this.workingOn.bind(this));
         container.className = 'btn bn col-sm-6 btn-light';
+        container.id = 'log';
 
 
         const checkBoxEl = document.createElement('input');
@@ -43,14 +51,22 @@ export class todolist {
         const textInputEl = document.createElement('input');
         textInputEl.type = 'button';
         textInputEl.className = 'input1';
+       
         textInputEl.value = this.state.text;
+        textInputEl.id = 'log2'
+        textInputEl.name = 'input1'
         textInputEl.addEventListener('keyup', this.handleTextChange.bind(this));
         container.appendChild(textInputEl);
 
         const pomodoro1 = document.getElementById('pom-number').value;
         this.pomodoro = pomodoro1;
+        this.pom = 0
+       
         const span1 = document.createElement('span');
-        span1.innerHTML = '0/' + this.pomodoro +"&nbsp;&nbsp;";
+        
+        span1.className = 'span';
+       
+        span1.innerHTML =this.pom+'/'+"<span id='to'>"+this.pomodoro +"</span>&nbsp;&nbsp;";
         span1.className = 'span';
         container.appendChild(span1);
        
@@ -76,9 +92,10 @@ export class todolist {
     };
     workingOn() {
         const text2 = document.getElementById('working-on');
-        text2.innerHTML = '<div>working on</div>' + '        ' + this.state.text;
+        text2.innerHTML = '<div>working on</div>' + '        ' +"<span id = 'work'>" +this.state.text+ '</span>';
 
     }
+  
    
 };
 
