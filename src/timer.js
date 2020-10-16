@@ -1,23 +1,28 @@
+import { todolist } from './task.js'
 export class CountDownTimer {
   timer_id;
+  pomodoro;
   //remainingTime;
   constructor(state) {
     this.displayTime = document.getElementById("displayTime");
     if (state === "short") {
-      this.duration = 5; //to be changed to 300 in final release
+      this.duration = 300; //to be changed to 300 in final release
     } else if (state === "long") {
-      this.duration = 7; //to be changed to 900 in final release
+      this.duration = 900; //to be changed to 900 in final release
     } else {
-      this.duration = 10; //to be changed to 15000 in final release
+      this.duration = 1500; //to be changed to 15000 in final release
     }
     this.state = state;
     this.remainingTime = this.duration;
     this.startButton = document.getElementById("start");
     document.getElementById("progress-bar").style.width = "0%"; //reset progress bar
+    
   }
 
   start() {
     this.startButton.innerHTML = "STOP";
+    let startAudio = new Audio('click.mp3')
+    startAudio.play();
     this.timer_id = setInterval(this.countDown.bind(this), 1000);
   }
 
@@ -49,6 +54,7 @@ export class CountDownTimer {
   stop() {
     this.startButton.innerHTML = "START";
     clearInterval(this.timer_id);
+   
   }
 
   reset() {
@@ -58,18 +64,40 @@ export class CountDownTimer {
   }
 
   timeZeroHandler() {
+ 
     this.stop();
     this.reset();
+     let myAudio = new Audio('ring.mp3');
+      myAudio.play();
     if (this.state === "short" || this.state === "long") {
       document.getElementById("pomodoro").click();
+        
     }
-    /* let myAudio = new Audio('ring.mp3');
-      myAudio.play();
-      if (this.state === "pomodoro"){ 
-         render completed on selected task like 1/2
-
+   
+      const ii=document.getElementById('work').innerHTML
+      const jj = document.getElementsByName('input1');
+      for (let i = 0; i < jj.length; i++) {
+        const element = jj[i].value;
+   if (element === ii ) {
+    var pomo = new todolist();
+    pomo.state.pom++;
+    pomo.state.pomodoro = document.getElementById('to').innerText
+         const btn= jj[i].nextSibling.nextSibling.nextSibling;
+         btn.innerHTML = pomo.state.pom+'/'+ "<span id='to'>"+pomo.state.pomodoro+'</span>';
+      
+        }
+        
+        
       }
+      
+   
+     
+  
+    
+    
 
-*/
+     
+
+     
   }
 }
